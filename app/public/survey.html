@@ -176,7 +176,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
     UIkit.modal("#bestMatch-Modal").hide();
 
     $("#form").on("submit", function(event) {
@@ -202,12 +202,20 @@
         
         $.post("/api/friends", userAnswers, function(data) {
             console.log(data);
+
+            // Set the name and photo to the best match and show the modal
             $("#bestMatchName").text(data.bestMatchName);
             $("#bestMatchPhoto").attr("src", data.bestMatchPhoto);
             UIkit.modal("#bestMatch-Modal").show();
         });       
         
     });
+
+    // This clears the best match info inside the modal once it's closed
+    $("#close-modal").on("click", function() {
+        $("#bestMatchName").text("");
+        $("#bestMatchPhoto").attr("src", "");
+    })
 
 </script>
 
