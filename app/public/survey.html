@@ -147,11 +147,21 @@
             <br>
             <br>
             
-            <button class="btn uk-align-center uk-width-1-2 uk-button uk-button-default uk-margin-top" href="#" target="_blank" type="submit" id="submit-btn">Submit</button>
+            <button class="btn uk-align-center uk-width-1-2 uk-button uk-button-default uk-margin-top" type="submit" href="#" id="submit-btn">Submit</button>
             </div>
                 
         </div>
         </form>
+
+        <div id="bestMatch" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                <h2 class="uk-modal-title">Best friend match is...</h2>
+                <h3 id="bestMatchName">name here</h4>
+                <img id="bestMatchPhoto" src="https://everydaylivesinwar.herts.ac.uk/wp-content/plugins/staff-list/images/staff-member-1.jpg">
+                <button class="uk-modal-close uk-align-center uk-width-1-2 uk-button" type="button">Close</button>
+            </div>
+        </div>
+
         <br>
         <hr class="uk-divider-icon">
     
@@ -166,11 +176,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
+<script type="text/javascript"> 
+    UIkit.modal("#bestMatch").hide();
+
     $("#form").on("submit", function(event) {
         event.preventDefault();
         console.log("hi");
-
+        
         var userAnswers = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
@@ -187,10 +199,13 @@
                 $('#q10').val().trim()
             ]
         };
-
+        
         $.post("/api/friends", userAnswers, function(data) {
             console.log(data);
         });
+
+        UIkit.modal("#bestMatch").show();
+        
     });
 
 </script>
