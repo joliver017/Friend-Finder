@@ -181,7 +181,6 @@
 
     $("#form").on("submit", function(event) {
         event.preventDefault();
-        console.log("hi");
         
         var userAnswers = {
             name: $("#name").val().trim(),
@@ -201,7 +200,7 @@
         };
         
         $.post("/api/friends", userAnswers, function(data) {
-            console.log(data);
+            y
 
             // Set the name and photo to the best match and show the modal
             $("#bestMatchName").text(data.bestMatchName);
