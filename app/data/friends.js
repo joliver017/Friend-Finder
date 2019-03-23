@@ -14,6 +14,70 @@ var friends = [
             4,
             1
           ]
+      },
+      {
+        "name":"Jane",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "answers":[
+            1,
+            4,
+            5,
+            2,
+            3,
+            5,
+            4,
+            1,
+            2,
+            1
+          ]
+      },
+      {
+        "name":"John",
+        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "answers":[
+            3,
+            1,
+            2,
+            1,
+            5,
+            3,
+            4,
+            1,
+            5,
+            1
+          ]
+      },
+      {
+        "name":"Batman",
+        "photo":"http://www.vincegolangco.com/wp-content/uploads/2010/12/batman-for-facebook.jpg",
+        "answers":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
+      {
+        "name":"Mickey Mouse",
+        "photo":"http://www.vincegolangco.com/wp-content/uploads/2010/12/mickey-mouse-for-facebook.jpg",
+        "answers":[
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+          ]
       }
     ];
 

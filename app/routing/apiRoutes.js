@@ -9,10 +9,19 @@ module.exports = function(app) {
   
     // Create new friend/user
     app.post("/api/friends", function (req, res) {
-        var newFriend = req.body;
-        res.send(newFriend)
-        console.log(newFriend);
-        friends.push(newFriend);
+        var userData = req.body;
+        res.send(userData);
+        console.log(userData.answers);
+
+        for (var i=0; i<userData.answers.length; i++) {
+            userData.answers[i] = parseInt(userData.answers[i]);
+        }
+
+        console.log(userData.answers);
+
+
+
+        friends.push(userData);
         console.log(friends);
     });
   
