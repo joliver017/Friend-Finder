@@ -153,12 +153,12 @@
         </div>
         </form>
 
-        <div id="bestMatch" uk-modal>
+        <div id="bestMatch-Modal" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                 <h2 class="uk-modal-title">Best friend match is...</h2>
-                <h3 id="bestMatchName">name here</h4>
-                <img id="bestMatchPhoto" src="https://everydaylivesinwar.herts.ac.uk/wp-content/plugins/staff-list/images/staff-member-1.jpg">
-                <button class="uk-modal-close uk-align-center uk-width-1-2 uk-button" type="button">Close</button>
+                <h3 id="bestMatchName"></h3>
+                <img id="bestMatchPhoto" src="">
+                <button id="close-modal" class="uk-modal-close uk-align-center uk-width-1-2 uk-button" type="button">Close</button>
             </div>
         </div>
 
@@ -177,7 +177,7 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <script type="text/javascript"> 
-    UIkit.modal("#bestMatch").hide();
+    UIkit.modal("#bestMatch-Modal").hide();
 
     $("#form").on("submit", function(event) {
         event.preventDefault();
@@ -202,9 +202,10 @@
         
         $.post("/api/friends", userAnswers, function(data) {
             console.log(data);
-        });
-
-        UIkit.modal("#bestMatch").show();
+            $("#bestMatchName").text(data.bestMatchName);
+            $("#bestMatchPhoto").attr("src", data.bestMatchPhoto);
+            UIkit.modal("#bestMatch-Modal").show();
+        });       
         
     });
 
