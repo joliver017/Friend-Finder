@@ -200,7 +200,7 @@
         };
         
         $.post("/api/friends", userAnswers, function(data) {
-            y
+            // console.log(data);
 
             // Set the name and photo to the best match and show the modal
             $("#bestMatchName").text(data.bestMatchName);
